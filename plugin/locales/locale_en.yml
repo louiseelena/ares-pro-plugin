@@ -2,9 +2,9 @@
 en:
   Pro:
       #Text Message Formatting
-      pro_no_scene_id: "%{Pro} %xh%xw %{sender}%xn: %{message}%xn"
-      pro_no_scene_id_nick: "%{Pro} %xh%{sender}%xn: %{message} %xx%xh(%{sender_char})%xn"
-      pro_with_scene_id: "%{Pro} %xh%{sender}%xn: %{message} %xx%xh(Scene %{scene_id})%xn"
+      pro_no_scene_id: "%{pro} %xh%xw %{sender}%xn: %{message}%xn"
+      pro_no_scene_id_nick: "%{pro} %xh%{sender}%xn: %{message} %xx%xh(%{sender_char})%xn"
+      pro_with_scene_id: "%{pro} %xh%{sender}%xn: %{message} %xx%xh(Scene %{scene_id})%xn"
 
 
       pro_target_missing: "Beep boop: To whom shall I send this message?"
