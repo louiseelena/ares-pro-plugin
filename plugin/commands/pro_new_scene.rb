@@ -25,8 +25,8 @@ module AresMUSH
       return t('dispatcher.not_allowed')
     end
 
-    def check_Pro_target
-      return t('Pro.Pro_new_scene_target_missing') if !self.names || self.names.empty?
+    def check_pro_target
+      return t('pro.pro_new_scene_target_missing') if !self.names || self.names.empty?
       return nil
     end
 
@@ -35,13 +35,13 @@ module AresMUSH
       self.names.each do |name|
         char = Character.named(name)
         if !char
-          client.emit_failure t('Pro.no_such_character')
+          client.emit_failure t('pro.no_such_character')
           return
         end
       end
 
-      scene_type = Global.read_config("Pro", "scene_type")
-      location = Global.read_config("Pro", "location")
+      scene_type = Global.read_config("pro", "scene_type")
+      location = Global.read_config("pro", "location")
       scene = Scenes.start_scene(enactor, location, true, scene_type, true)
 
       # Scenes.create_scene_temproom(scene)
@@ -49,7 +49,7 @@ module AresMUSH
       Global.logger.info "Scene #{scene.id} started by #{enactor.name} in Temp Pro Room."
 
       # Checks if the names are valid. If so, starts a scene.
-      Global.dispatcher.queue_command(client, Command.new("Pro #{self.names_raw}/#{scene.id}=#{self.message}"))
+      Global.dispatcher.queue_command(client, Command.new("pro #{self.names_raw}/#{scene.id}=#{self.message}"))
 
       scene.participants.add enactor
       scene.watchers.add enactor
