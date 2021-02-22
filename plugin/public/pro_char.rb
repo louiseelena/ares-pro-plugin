@@ -1,10 +1,10 @@
 module AresMUSH
     class Character
-        attribute :Pro_last, :type => DataType::Array, :default => []
-        attribute :Pro_last_scene, :type => DataType::Array, :default => []
-        attribute :Pro_received
-        attribute :Pro_received_scene
-        attribute :Pro_color
-        attribute :Pro_scene
+        attribute :pro_last, :type => DataType::Array, :default => []
+        attribute :pro_last_scene, :type => DataType::Array, :default => []
+        attribute :pro_received
+        attribute :pro_received_scene
+        attribute :pro_color
+        attribute :pro_scene
     end
   end
