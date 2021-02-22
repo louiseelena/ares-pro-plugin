@@ -27,7 +27,7 @@ module AresMUSH
             client.emit_success t('pro.reply', :names => enactor.pro_received )
           end
         elsif enactor.pro_received_scene
-          Global.dispatcher.queue_command(client, Command.new("pro #{enactor.Pro_received}/#{enactor.pro_received_scene}=#{self.message}"))
+          Global.dispatcher.queue_command(client, Command.new("pro #{enactor.pro_received}/#{enactor.pro_received_scene}=#{self.message}"))
         else
           Global.dispatcher.queue_command(client, Command.new("pro #{enactor.pro_received}=#{self.message}"))
         end

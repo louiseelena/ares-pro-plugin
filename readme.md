@@ -16,7 +16,7 @@ In the game, run `plugin/install <github url>`.
 
 ### Page Command
 
-This plugin references the default AresMUSH page command. If that is not installed, this won't work. Specifically, it uses the DND and page lock features. If a person is set DND or page locked, you cannot txt them!
+This plugin references the default AresMUSH page command. If that is not installed, this won't work. Specifically, it uses the DND and page lock features. If a person is set DND or page locked, you cannot pro them!
 
 See additional setup instructions below.
 
@@ -24,11 +24,11 @@ See additional setup instructions below.
 
 ### Message format
 
-The text preface, start, and end markers are configurable in txt.yml. By default, texts display as:
+The text preface, start, and end markers are configurable in pro.yml. By default, texts display as:
 
 `(TXT to Tat) Skew : Hello there!`
 
-You can further adjust the text format if you like. The message format is contained in `/aresmush/plugins/txt/locales/local_en.yml`.
+You can further adjust the text format if you like. The message format is contained in `/aresmush/plugins/pro/locales/local_en.yml`.
 
 ### Nicknames
 
@@ -41,7 +41,7 @@ Note that texts must still be SENT using the character's name and not their nick
 `use_only_nick` - Changes the sender and recipient display to your nickname. Displays the sender's character name after the text, with the scene number.
 
 ### Location and Scene Type
-Sets the defaults for `txt/newscene` to autofill the location and scene type of text scenes. Be sure that scene type matches one of your scene_types as set in scenes.yml.
+Sets the defaults for `pro/newscene` to autofill the location and scene type of text scenes. Be sure that scene type matches one of your scene_types as set in scenes.yml.
 
 ## Uninstalling
 

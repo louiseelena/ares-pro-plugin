@@ -13,7 +13,7 @@ The text plugin lets you send text messages to other characters.
 
 On the game, you can text characters online by sending a text without specifying a scene number. These texts are not added to any scene and will not be logged or saved unless you do so manually.
 
-Do `Pro <name>=<message>` to send a text without adding it to a scene.
+Do `pro <name>=<message>` to send a text without adding it to a scene.
 
 > **Note:** Texting characters without an attached scene only works when all characters are logged in to the game via telnet; it will not work via the portal. Texting via the portal requires a scene.
 
@@ -23,7 +23,7 @@ Do `Pro <name>=<message>` to send a text without adding it to a scene.
 
 On game, you can start a new text scene in one easy step.
 
-`Pro/newscene <name> [<name}]=<message>`
+`pro/newscene <name> [<name}]=<message>`
 
 This will start a new scene, set the location and scene type, emit the text to all characters currently online, and add the text to the scene.
 
@@ -32,11 +32,11 @@ On the portal, you will need to [start a scene](/help/scenes_tutorial#starting-a
 ###Replying to Texts
 
 ####On Game
-If someone sends you a text, you can quickly reply to the text using `Pro/reply=<message>`. This will send your text to everyone in the recipient list and add it to the scene. To see who last texted you, type `Pro/reply`
+If someone sends you a text, you can quickly reply to the text using `pro/reply=<message>`. This will send your text to everyone in the recipient list and add it to the scene. To see who last texted you, type `pro/reply`
 
-On the game, the 'Pro' command will remember the last character and scene you texted. If you continue to text the same person, you can simply do `Pro <name> [<name}]=<message>`.
+On the game, the 'pro' command will remember the last character and scene you texted. If you continue to text the same person, you can simply do `pro <name> [<name}]=<message>`.
 
-If you're texting several different recipients or to several different scenes at once, you'll need to specify who you are texting and what scene it should be added to by doing `Pro <name> [<name}]/<scene>=<message>`.
+If you're texting several different recipients or to several different scenes at once, you'll need to specify who you are texting and what scene it should be added to by doing `pro <name> [<name}]/<scene>=<message>`.
 
 If you text someone who was not previously in that scene, they will automatically be added to the scene.
 
@@ -51,10 +51,10 @@ To send texts to a different recipient list, do `<name> [name]=<message>` and us
 
 ###Text Color
 
-You can choose a personal text color to make text scenes more readable. Do `Pro/color <color>` to set your personal color.  You can view available colors by doing `colors`, `colors1`, `colors2`, etc.
+You can choose a personal text color to make text scenes more readable. Do `pro/color <color>` to set your personal color.  You can view available colors by doing `colors`, `colors1`, `colors2`, etc.
 
 Use the full ansi color format for this, ex: \%xh\%xr for red highlight, \%xh\%x46 for bright green highlight, etc.
 
 ###Ignoring or Blocking Texts
 
-If you do not wish to receive Pros (in general, or from a specific person), the `page/ignore <name>=<on/off>` and `page/dnd <on/off>` commands will block Pros as well.
+If you do not wish to receive pros (in general, or from a specific person), the `page/ignore <name>=<on/off>` and `page/dnd <on/off>` commands will block pros as well.
