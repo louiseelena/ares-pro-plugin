@@ -4,7 +4,7 @@ module AresMUSH
           include CommandHandler
 # Possible commands... Pro name=message; Pro =message; Pro name[/optional scene #]=<message>
 
-          attr_accessor :names, :message, :scene_id, :scene, :Pro, :Pro_recipient, :use_only_nick
+          attr_accessor :names, :message, :scene_id, :scene, :pro, :pro_recipient, :use_only_nick
 
         def parse_args
           if (!cmd.args)
@@ -12,8 +12,8 @@ module AresMUSH
             self.names = []
 
           elsif (cmd.args.start_with?("="))
-            self.names = enactor.Pro_last
-            self.scene_id = enactor.Pro_scene
+            self.names = enactor.pro_last
+            self.scene_id = enactor.pro_scene
             self.message = cmd.args.after("=")
 
           elsif (cmd.args.include?("="))
@@ -21,7 +21,7 @@ module AresMUSH
             # Catch the common mistake of last-paging someone a link.
             # p http://stuff.com/stuff=this.file
             if (args.arg1 && (args.arg1.include?("http://") || args.arg1.include?("https://")) )
-              self.names = enactor.Pro_last
+              self.names = enactor.pro_last
               self.message = "#{args.arg1}=#{args.arg2}"
             #Text a specific scene
             elsif ( args.arg1.include?("/") )
@@ -51,7 +51,7 @@ module AresMUSH
 
         def check_errors
           return t('dispatcher.not_allowed') if !enactor.is_approved?
-          return t('Pro.Pro_target_missing') if !self.names || self.names.empty?
+          return t('pro.pro_target_missing') if !self.names || self.names.empty?
           return nil
         end
 
@@ -61,16 +61,16 @@ module AresMUSH
           if self.scene_id
             scene = Scene[self.scene_id]
             if !scene
-              client.emit_failure t('Pro.scene_not_found')
+              client.emit_failure t('pro.scene_not_found')
             end
-            can_Pro_scene = Scenes.can_read_scene?(enactor, scene)
+            can_pro_scene = Scenes.can_read_scene?(enactor, scene)
             if scene.completed
-              client.emit_failure t('Pro.scene_not_running')
+              client.emit_failure t('pro.scene_not_running')
               return
             elsif !scene.room
               raise "Trying to pose to a scene that doesn't have a room."
-            elsif !can_Pro_scene
-              client.emit_failure t('Pro.scene_no_access')
+            elsif !can_pro_scene
+              client.emit_failure t('pro.scene_no_access')
               return
             end
             self.scene = scene
@@ -81,10 +81,10 @@ module AresMUSH
           self.names.each do |name|
             char = Character.named(name)
             if !char
-              client.emit_failure t('Pro.no_such_character')
+              client.emit_failure t('pro.no_such_character')
               return
             elsif (!Login.is_online?(char) && !self.scene)
-              client.emit_failure t('Pro.target_offline_no_scene', :name => name.titlecase )
+              client.emit_failure t('pro.target_offline_no_scene', :name => name.titlecase )
               return
             else
               recipients.concat [char]
@@ -92,15 +92,15 @@ module AresMUSH
 
             #Add recipient to scene if they are not already a participant
             if self.scene
-              can_Pro_scene = Scenes.can_read_scene?(char, self.scene)
+              can_pro_scene = Scenes.can_read_scene?(char, self.scene)
               if (!can_Pro_scene)
-                Scenes.add_to_scene(scene, t('Pro.recipient_added_to_scene', :name => char.name ),
+                Scenes.add_to_scene(scene, t('pro.recipient_added_to_scene', :name => char.name ),
                 enactor, nil, true )
-                Rooms.emit_ooc_to_room self.scene.room, t('Pro.recipient_added_to_scene',
+                Rooms.emit_ooc_to_room self.scene.room, t('pro.recipient_added_to_scene',
                 :name => char.name )
 
                 if (enactor.room != self.scene.room)
-                  client.emit_success t('Pro.recipient_added_to_scene',
+                  client.emit_success t('pro.recipient_added_to_scene',
                   :name =>char.name )
                 end
 
@@ -116,11 +116,11 @@ module AresMUSH
             end
           end
 
-          recipient_display_names = Pro.format_recipient_display_names(recipients, enactor)
-          recipient_names = Pro.format_recipient_names(recipients)
-          sender_display_name = Pro.format_sender_display_name(enactor)
+          recipient_display_names = pro.format_recipient_display_names(recipients, enactor)
+          recipient_names = pro.format_recipient_names(recipients)
+          sender_display_name = pro.format_sender_display_name(enactor)
 
-          self.use_only_nick = Global.read_config("Pro", "use_only_nick")
+          self.use_only_nick = Global.read_config("pro", "use_only_nick")
           # If scene, add text to scene
           if self.scene
             if self.use_only_nick
@@ -129,17 +129,17 @@ module AresMUSH
               scene_id_display = self.scene_id
             end
 
-            scene_Pro = t('Pro.Pro_no_scene_id', :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
+            scene_pro = t('pro.pro_no_scene_id', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
 
-            self.Pro = t('Pro.Pro_with_scene_id', :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :scene_id => scene_id_display )
+            self.pro = t('pro.pro_with_scene_id', :pro => pro.format_Pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :scene_id => scene_id_display )
 
-            Scenes.add_to_scene(self.scene, scene_Pro, enactor)
-            Rooms.emit_ooc_to_room self.scene.room, scene_Pro
+            Scenes.add_to_scene(self.scene, scene_pro, enactor)
+            Rooms.emit_ooc_to_room self.scene.room, scene_pro
           else
             if self.use_only_nick
-              self.Pro = t('Pro.Pro_no_scene_id_nick', :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :sender_char => enactor.name )
+              self.pro = t('pro.pro_no_scene_id_nick', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :sender_char => enactor.name )
             else
-              self.Pro = t('Pro.Pro_no_scene_id', :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
+              self.pro = t('pro.pro_no_scene_id', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
             end
 
           end
@@ -149,28 +149,28 @@ module AresMUSH
           recipients.each do |char|
             if (Login.is_online?(char)) && (!self.scene || char.room != self.scene.room)
               if char.page_ignored.include?(enactor)
-                client.emit_failure t('Pro.cant_Pro_ignored', :names => char.name)
+                client.emit_failure t('pro.cant_pro_ignored', :names => char.name)
                 return
               elsif (char.page_do_not_disturb)
                 client.emit_ooc t('page.recipient_do_not_disturb', :name => char.name)
                 return
               end
-              Pro.Pro_recipient(enactor, char, recipient_display_names, self.Pro, self.scene_id)
+              pro.pro_recipient(enactor, char, recipient_display_names, self.pro, self.scene_id)
             end
-            Pro_received = "#{recipient_names}" + " #{enactor.name}"
-            Pro_received.slice! "#{char.name}"
-            char.update(Pro_received: (Pro_received.squish))
-            char.update(Pro_received_scene: self.scene_id)
+            pro_received = "#{recipient_names}" + " #{enactor.name}"
+            pro_received.slice! "#{char.name}"
+            char.update(pro_received: (pro_received.squish))
+            char.update(pro_received_scene: self.scene_id)
           end
 
           #To sender
           if (!self.scene || enactor_room != self.scene.room)
-            client.emit self.Pro
+            client.emit self.pro
           end
 
 
-          enactor.update(Pro_last: list_arg(recipient_names))
-          enactor.update(Pro_scene: self.scene_id)
+          enactor.update(pro_last: list_arg(recipient_names))
+          enactor.update(pro_scene: self.scene_id)
       end
 
       def log_command
