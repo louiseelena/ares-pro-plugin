@@ -1,6 +1,6 @@
 module AresMUSH
-  module Pro
-      class ProNewSceneCmd
+  module pro
+      class proNewSceneCmd
         include CommandHandler
 
         attr_accessor :names, :names_raw, :message, :scene_id
