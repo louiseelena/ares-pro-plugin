@@ -10,8 +10,8 @@ module AresMUSH
       end
 
       def handle
-        enactor.update(Pro_color: self.option)
-        client.emit_success t('Pro.color_set', :option => self.option)
+        enactor.update(pro_color: self.option)
+        client.emit_success t('pro.color_set', :option => self.option)
       end
     end
   end
