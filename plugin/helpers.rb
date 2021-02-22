@@ -2,7 +2,7 @@ module AresMUSH
     module Pro
 
       def self.format_pro_indicator(char, names)
-        t('pro.pro_indicator',
+        t('Pro.pro_indicator',
        :start_marker => Global.read_config("pro", "pro_start_marker") || "(", :end_marker => Global.read_config("pro", "pro_end_marker") || ")",  :preface => Global.read_config("pro", "pro_preface"),  :recipients => names, :color => Pro.pro_color(char) )
       end
 
@@ -63,7 +63,7 @@ module AresMUSH
             recipient_names.concat [char.name]
           end
         end
-        return t('pro.recipient_indicator', :recipients => recipient_names.join(" "))
+        return t('Pro.recipient_indicator', :recipients => recipient_names.join(" "))
       end
 
       def self.pro_color(char)
