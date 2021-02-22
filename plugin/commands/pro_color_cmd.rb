@@ -1,5 +1,5 @@
 module AresMUSH
-  module pro
+  module Pro
     class ProColorCmd
       include CommandHandler
       
