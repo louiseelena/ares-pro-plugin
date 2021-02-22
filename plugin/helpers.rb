@@ -16,10 +16,10 @@ module AresMUSH
             recipient_display_names.concat [char.nick]
             sender_name = sender.nick || sender.name
           elsif use_only_nick
-            nickname_field = Global.read_config("demographics", "dragon") || ""
-            if (char.demographic(dragon))
-              recipient_display_names.concat [char.demographic(dragon)]
-              sender_name = sender.demographic(dragon) || sender.name
+            nickname_field = Global.read_config("demographics", "dragon_field") || ""
+            if (char.demographic(dragon_field))
+              recipient_display_names.concat [char.demographic(dragon_field)]
+              sender_name = sender.demographic(dragon_field) || sender.name
             else
               recipient_display_names.concat [char.name]
             end
@@ -42,9 +42,9 @@ module AresMUSH
         if use_nick
           sender_display_name = sender.nick
         elsif use_only_nick
-          nickname_field = Global.read_config("demographics", "dragon") || ""
-          if (sender.demographic(dragon))
-            sender_display_name = sender.demographic(dragon)
+          nickname_field = Global.read_config("demographics", "dragon_field") || ""
+          if (sender.demographic(dragon_field))
+            sender_display_name = sender.demographic(dragon_field)
           else
             sender_display_name = sender.name
           end
