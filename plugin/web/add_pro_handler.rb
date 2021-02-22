@@ -1,5 +1,5 @@
 module AresMUSH
-    module Pro
+    module pro
         class AddProRequestHandler
 
             def handle(request)
@@ -43,7 +43,7 @@ module AresMUSH
                     else
                         names = pose.first("=") ? pose.first("=").split(" ") : nil
                         if names[0].titlecase == enactor.name
-                          return { error: t('Pro.dont_Pro_self') }
+                          return { error: t('pro.dont_pro_self') }
                         end
                         recipients = [enactor]
                         names.each do |name|
@@ -73,14 +73,14 @@ module AresMUSH
                 end
 
                 recipients.each do |char|
-                  can_Pro_scene = Scenes.can_read_scene?(char, scene)
+                  can_pro_scene = Scenes.can_read_scene?(char, scene)
                   #If they aren't in the scene currently, add them
-                  if (!can_Pro_scene)
-                    Scenes.add_to_scene(scene, t('Pro.recipient_added_to_scene',
+                  if (!can_pro_scene)
+                    Scenes.add_to_scene(scene, t('pro.recipient_added_to_scene',
                     :name => char.name ),
                     enactor, nil, true )
 
-                    Rooms.emit_ooc_to_room scene_room,t('Pro.recipient_added_to_scene',
+                    Rooms.emit_ooc_to_room scene_room,t('pro.recipient_added_to_scene',
                     :name => char.name )
 
                     if (!scene.participants.include?(char))
@@ -101,8 +101,8 @@ module AresMUSH
 
 
                   if Login.is_online?(char)
-                    recipient_pro = t('Pro.Pro_with_scene_id',
-                    :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names),
+                    recipient_pro = t('pro.pro_with_scene_id',
+                    :pro => pro.format_pro_indicator(enactor, recipient_display_names),
                     :sender => sender_display_name,
                     :message => message,
                     :scene_id => scene_id_display)
@@ -111,7 +111,7 @@ module AresMUSH
                       nil
                     elsif char.room.scene_id != scene_id
                       client = Login.find_client(char)
-                      client.emit recipient_Pro
+                      client.emit recipient_pro
                     else
                       nil
                     end
