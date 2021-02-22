@@ -1,5 +1,5 @@
 module AresMUSH
-  module pro
+  module Pro
       class proSendCmd
           include CommandHandler
 # Possible commands... Pro name=message; Pro =message; Pro name[/optional scene #]=<message>
