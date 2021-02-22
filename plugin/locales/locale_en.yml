@@ -1,0 +1,35 @@
+---
+en:
+  Pro:
+      #Text Message Formatting
+      Pro_no_scene_id: "%{Pro} %xh%xw %{sender}%xn: %{message}%xn"
+      Pro_no_scene_id_nick: "%{Pro} %xh%{sender}%xn: %{message} %xx%xh(%{sender_char})%xn"
+      Pro_with_scene_id: "%{Pro} %xh%{sender}%xn: %{message} %xx%xh(Scene %{scene_id})%xn"
+
+
+      Pro_target_missing: "Beep boop: To whom shall I send this message?"
+      cant_Pro_ignored: "You can't Pro %{names} because you're on their ignore list."
+      recipient_do_not_disturb: "%{name} is set 'do not disturb' right now.  Please try your pro again later."
+      target_offline_no_scene: "%{name} is not connected and you did not specify a scene. To project to someone who is offline, start a new scene (Pro/newscene name=msg)."
+
+      recipient_added_to_scene: "That pro has added %{name} to the scene participants list."
+      no_such_character: "No character found by that name."
+
+      no_one_to_reply_to: "Looks like no one's Pro'd you recently. Sorry."
+      reply_scene: "Last Pro came from: %{names}; Scene: %{scene}"
+      reply: "Last Pro came from: %{names}"
+
+      recipient_indicator: "%{recipients}"
+
+      Pro_indicator: "%{color}%{start_marker}%{preface} to %{recipients}%{color}%{end_marker}%xn"
+
+      color_set: "Pros will now appear with this marker: %{option}%%%xn"
+
+      scene_not_running: "That scene isn't running.  You'll need to restart it if you want to Pro into it."
+      scene_no_access: "You do not have access to project into that scene. Ask the participants to add you. (Try: scene/addchar #=character )"
+      scene_not_found: "No scene found by that number."
+
+      incorrect_format: "That's not the correct format. Please use `name(s)=message`"
+
+      Pro_new_scene_target_missing: "Please specify a target and message. Ex: Pro/newscene Name=Message"
+      dont_Pro_self: "You can't project to yourself!"

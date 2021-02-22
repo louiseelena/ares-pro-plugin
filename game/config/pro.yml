@@ -1,0 +1,11 @@
+---
+Pro:
+  use_nick: false
+  use_only_nick: false
+  Pro_start_marker: (
+  Pro_end_marker: )
+  Pro_preface: "Pro"
+  scene_type: "Text"
+  location: "Text"
+  shortcuts:
+    text: Pro
