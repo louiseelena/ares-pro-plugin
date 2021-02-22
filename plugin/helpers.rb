@@ -1,5 +1,5 @@
 module AresMUSH
-    module pro
+    module Pro
 
       def self.format_pro_indicator(char, names)
         t('pro.pro_indicator',
