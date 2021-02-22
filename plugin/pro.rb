@@ -1,18 +1,18 @@
 $:.unshift File.dirname(__FILE__)
 
 module AresMUSH
-  module Pro
+  module pro
     def self.plugin_dir
       File.dirname(__FILE__)
     end
  
     def self.shortcuts
-      Global.read_config("Pro", "shortcuts")
+      Global.read_config("pro", "shortcuts")
     end
  
     def self.get_cmd_handler(client, cmd, enactor)
         case cmd.root
-        when "Pro"
+        when "pro"
           case cmd.switch
           when "color"
             return ProColorCmd
