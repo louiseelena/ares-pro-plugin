@@ -1,5 +1,5 @@
 module AresMUSH
-  module Pro
+  module pro
     class ProReplyCmd
       include CommandHandler
 
@@ -9,9 +9,9 @@ module AresMUSH
         self.message = cmd.args
       end
 
-      def check_received_Pros
-        unless enactor.Pro_received
-          client.emit_failure t('Pro.no_one_to_reply_to')
+      def check_received_pros
+        unless enactor.pro_received
+          client.emit_failure t('pro.no_one_to_reply_to')
           return
         end
       end
