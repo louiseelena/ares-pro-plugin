@@ -33,7 +33,7 @@ module AresMUSH
         else
           recipients = recipient_display_names.join(" ")
         end
-        return t('pro.recipient_indicator', :recipients => recipients)
+        return t('Pro.recipient_indicator', :recipients => recipients)
       end
 
       def self.format_sender_display_name(sender)
