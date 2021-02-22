@@ -43,8 +43,8 @@ module AresMUSH
 
           else
             #Text your last recipient and scene
-            self.names = enactor.Pro_last
-            self.scene_id = enactor.Pro_scene
+            self.names = enactor.pro_last
+            self.scene_id = enactor.pro_scene
             self.message = cmd.args
           end
         end
