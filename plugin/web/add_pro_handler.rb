@@ -49,7 +49,7 @@ module AresMUSH
                         names.each do |name|
                           char = Character.named(name)
                           if !char
-                            return { error: t('Pro.no_such_character') }
+                            return { error: t('pro.no_such_character') }
                           else
                             recipients.concat [char]
                           end
@@ -92,16 +92,16 @@ module AresMUSH
                     end
                   end
 
-                  Pro_received = "#{recipient_names}"
-                  Pro_received.slice! "#{char.name}"
-                  char.update(Pro_received: (Pro_received.squish))
-                  char.update(Pro_received_scene: scene_id)
+                  pro_received = "#{recipient_names}"
+                  pro_received.slice! "#{char.name}"
+                  char.update(pro_received: (pro_received.squish))
+                  char.update(pro_received_scene: scene_id)
 
                   #Emit to online players
 
 
                   if Login.is_online?(char)
-                    recipient_Pro = t('Pro.Pro_with_scene_id',
+                    recipient_pro = t('Pro.Pro_with_scene_id',
                     :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names),
                     :sender => sender_display_name,
                     :message => message,
@@ -118,19 +118,19 @@ module AresMUSH
                   end
                 end
 
-                scene_Pro = t('Pro.Pro_no_scene_id',
-                :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names),
+                scene_pro = t('pro.pro_no_scene_id',
+                :pro => pro.format_pro_indicator(enactor, recipient_display_names),
                 :sender => sender_display_name,
                 :message => message )
-                Scenes.add_to_scene(scene, scene_Pro, enactor)
+                Scenes.add_to_scene(scene, scene_pro, enactor)
 
-                room_Pro = t('Pro.Pro_with_scene_id',
-                :Pro => Pro.format_Pro_indicator(enactor, recipient_display_names),
+                room_pro = t('pro.pro_with_scene_id',
+                :pro => pro.format_pro_indicator(enactor, recipient_display_names),
                 :sender => sender_display_name,
                 :message => message,
                 :scene_id => scene_id_display)
 
-                Rooms.emit_ooc_to_room scene_room,room_Pro
+                Rooms.emit_ooc_to_room scene_room,room_pro
 
                 {
                 }
