@@ -1,9 +1,9 @@
 module AresMUSH
-    module Txt
+    module pro
 
-      def self.format_txt_indicator(char, names)
-        t('txt.txt_indicator',
-       :start_marker => Global.read_config("txt", "txt_start_marker") || "(", :end_marker => Global.read_config("txt", "txt_end_marker") || ")",  :preface => Global.read_config("txt", "txt_preface"),  :recipients => names, :color => Txt.txt_color(char) )
+      def self.format_pro_indicator(char, names)
+        t('pro.pro_indicator',
+       :start_marker => Global.read_config("pro", "pro_start_marker") || "(", :end_marker => Global.read_config("pro", "pro_end_marker") || ")",  :preface => Global.read_config("pro", "pro_preface"),  :recipients => names, :color => pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
@@ -33,12 +33,12 @@ module AresMUSH
         else
           recipients = recipient_display_names.join(" ")
         end
-        return t('txt.recipient_indicator', :recipients => recipients)
+        return t('pro.recipient_indicator', :recipients => recipients)
       end
 
       def self.format_sender_display_name(sender)
-        use_nick = Global.read_config("txt", "use_nick")
-        use_only_nick = Global.read_config("txt", "use_only_nick")
+        use_nick = Global.read_config("pro", "use_nick")
+        use_only_nick = Global.read_config("pro", "use_only_nick")
         if use_nick
           sender_display_name = sender.nick
         elsif use_only_nick
@@ -58,19 +58,19 @@ module AresMUSH
         recipient_names = []
         recipients.each do |char|
           if !char
-            return { error: t('txt.no_such_character') }
+            return { error: t('pro.no_such_character') }
           else
             recipient_names.concat [char.name]
           end
         end
-        return t('txt.recipient_indicator', :recipients => recipient_names.join(" "))
+        return t('pro.recipient_indicator', :recipients => recipient_names.join(" "))
       end
 
-      def self.txt_color(char)
-        char.txt_color || "%xh%xy"
+      def self.pro_color(char)
+        char.pro_color || "%xh%xy"
       end
 
-      def self.txt_recipient(sender, recipient, recipient_names, message, scene_id = nil)
+      def self.pro_recipient(sender, recipient, recipient_names, message, scene_id = nil)
         client = Login.find_client(sender)
         recipient_client  = Login.find_client(recipient)
         Login.emit_if_logged_in recipient, message
