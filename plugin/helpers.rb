@@ -1,21 +1,21 @@
 module AresMUSH
-    module Pro
+    module pro
 
       def self.format_pro_indicator(char, names)
-        t('Pro.pro_indicator',
-       :start_marker => Global.read_config("Pro", "Pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "Pro_end_marker") || ")",  :preface => Global.read_config("Pro", "Pro_preface"),  :recipients => names, :color => Pro.pro_color(char) )
+        t('pro.pro_indicator',
+       :start_marker => Global.read_config("pro", "pro_start_marker") || "(", :end_marker => Global.read_config("pro", "pro_end_marker") || ")",  :preface => Global.read_config("pro", "pro_preface"),  :recipients => names, :color => pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
-        use_nick = Global.read_config("Pro", "use_nick")
-        use_only_nick = Global.read_config("Pro", "use_only_nick")
+        use_nick = Global.read_config("pro", "use_nick")
+        use_only_nick = Global.read_config("pro", "use_only_nick")
         recipient_display_names = []
         sender_name = sender.name
         recipients.each do |char|
           if use_nick
             recipient_display_names.concat [char.nick]
             sender_name = sender.nick || sender.name
-              elsif use_only_nick
+          elsif use_only_nick
             nickname_field = Global.read_config("demographics", "nickname_field") || ""
             if (char.demographic(nickname_field))
               recipient_display_names.concat [char.demographic(nickname_field)]
@@ -33,7 +33,7 @@ module AresMUSH
         else
           recipients = recipient_display_names.join(" ")
         end
-        return t('Pro.recipient_indicator', :recipients => recipients)
+        return t('pro.recipient_indicator', :recipients => recipients)
       end
 
       def self.format_sender_display_name(sender)
@@ -63,7 +63,7 @@ module AresMUSH
             recipient_names.concat [char.name]
           end
         end
-        return t('Pro.recipient_indicator', :recipients => recipient_names.join(" "))
+        return t('pro.recipient_indicator', :recipients => recipient_names.join(" "))
       end
 
       def self.pro_color(char)

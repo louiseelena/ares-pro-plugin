@@ -1,6 +1,6 @@
 ---
 en:
-  Pro:
+  pro:
       #Text Message Formatting
       pro_no_scene_id: "%{pro} %xh%xw %{sender}%xn: %{message}%xn"
       pro_no_scene_id_nick: "%{pro} %xh%{sender}%xn: %{message} %xx%xh(%{sender_char})%xn"
@@ -23,7 +23,7 @@ en:
 
       pro_indicator: "%{color}%{start_marker}%{preface} to %{recipients}%{color}%{end_marker}%xn"
 
-      color_set: "Pros will now appear with this marker: %{option}%%%xn"
+      color_set: "pros will now appear with this marker: %{option}%%%xn"
 
       scene_not_running: "That scene isn't running.  You'll need to restart it if you want to pro into it."
       scene_no_access: "You do not have access to pro into that scene. Ask the participants to add you. (Try: scene/addchar #=character )"

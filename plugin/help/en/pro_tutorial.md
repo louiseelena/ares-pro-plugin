@@ -43,9 +43,9 @@ If you text someone who was not previously in that scene, they will automaticall
 ####On the Portal
 Texts sent from the portal add the texts to the scene and emit to anyone who is online on the game.
 
-Send texts by using the 'Pro' button next to the 'Add OOC' and 'Add Pose' buttons on the portal. By default, this button texts everyone in the scene.
+Send texts by using the 'pro' button next to the 'Add OOC' and 'Add Pose' buttons on the portal. By default, this button texts everyone in the scene.
 
-To send texts to a different recipient list, do `<name> [name]=<message>` and use the 'Pro' button.
+To send texts to a different recipient list, do `<name> [name]=<message>` and use the 'pro' button.
 
 ##Text Settings
 

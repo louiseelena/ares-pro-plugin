@@ -1,6 +1,6 @@
 module AresMUSH
-  module Pro
-      class ProNewSceneCmd
+  module pro
+      class proNewSceneCmd
         include CommandHandler
 
         attr_accessor :names, :names_raw, :message, :scene_id
@@ -46,7 +46,7 @@ module AresMUSH
 
       # Scenes.create_scene_temproom(scene)
 
-      Global.logger.info "Scene #{scene.id} started by #{enactor.name} in Temp Pro Room."
+      Global.logger.info "Scene #{scene.id} started by #{enactor.name} in Temp pro Room."
 
       # Checks if the names are valid. If so, starts a scene.
       Global.dispatcher.queue_command(client, Command.new("pro #{self.names_raw}/#{scene.id}=#{self.message}"))
