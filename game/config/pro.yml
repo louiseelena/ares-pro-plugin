@@ -1,9 +1,9 @@
 ---
 pro:
-  use_nick: false
-  use_only_nick: false
-  pro_start_marker: (
-  pro_end_marker: )
+  use_nick: true
+  use_only_nick: true
+  pro_start_marker: <
+  pro_end_marker: >
   pro_preface: "DTU"
   scene_type: "Dragon"
   location: "Dragon"
