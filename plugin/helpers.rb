@@ -3,7 +3,7 @@ module AresMUSH
 
       def self.format_pro_indicator(char, names)
         t('Pro.pro_indicator',
-       :start_marker => Global.read_config("Pro", "Pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "Pro_end_marker") || ")",  :preface => Global.read_config("Pro", "Pro_preface"),  :recipients => names, :color => Pro.Pro_color(char) )
+       :start_marker => Global.read_config("Pro", "Pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "Pro_end_marker") || ")",  :preface => Global.read_config("Pro", "Pro_preface"),  :recipients => names, :color => Pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
