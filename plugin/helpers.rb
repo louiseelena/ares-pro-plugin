@@ -15,7 +15,7 @@ module AresMUSH
           if use_nick
             recipient_display_names.concat [char.nick]
             sender_name = sender.nick || sender.name
-          eelsif use_only_nick
+              elseif use_only_nick
             nickname_field = Global.read_config("demographics", "nickname_field") || ""
             if (char.demographic(nickname_field))
               recipient_display_names.concat [char.demographic(nickname_field)]
