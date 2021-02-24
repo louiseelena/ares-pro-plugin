@@ -1,6 +1,6 @@
 module AresMUSH
-    module pro
-        class AddproRequestHandler
+    module Pro
+        class AddProRequestHandler
 
             def handle(request)
                 scene_id = request.args[:scene_id]
@@ -61,9 +61,9 @@ module AresMUSH
                   message = pose
                 end
 
-                recipient_names = pro.format_recipient_names(recipients)
-                recipient_display_names = pro.format_recipient_display_names(recipients, enactor)
-                sender_display_name = pro.format_sender_display_name(enactor)
+                recipient_names = Pro.format_recipient_names(recipients)
+                recipient_display_names = Pro.format_recipient_display_names(recipients, enactor)
+                sender_display_name = Pro.format_sender_display_name(enactor)
                 scene_room = scene.room
                 use_only_nick = Global.read_config("pro", "use_only_nick")
                 if use_only_nick
@@ -102,7 +102,7 @@ module AresMUSH
 
                   if Login.is_online?(char)
                     recipient_pro = t('pro.pro_with_scene_id',
-                    :pro => pro.format_pro_indicator(enactor, recipient_display_names),
+                    :pro => Pro.format_pro_indicator(enactor, recipient_display_names),
                     :sender => sender_display_name,
                     :message => message,
                     :scene_id => scene_id_display)
@@ -119,13 +119,13 @@ module AresMUSH
                 end
 
                 scene_pro = t('pro.pro_no_scene_id',
-                :pro => pro.format_pro_indicator(enactor, recipient_display_names),
+                :pro => Pro.format_pro_indicator(enactor, recipient_display_names),
                 :sender => sender_display_name,
                 :message => message )
                 Scenes.add_to_scene(scene, scene_pro, enactor)
 
                 room_pro = t('pro.pro_with_scene_id',
-                :pro => pro.format_pro_indicator(enactor, recipient_display_names),
+                :pro => Pro.format_pro_indicator(enactor, recipient_display_names),
                 :sender => sender_display_name,
                 :message => message,
                 :scene_id => scene_id_display)

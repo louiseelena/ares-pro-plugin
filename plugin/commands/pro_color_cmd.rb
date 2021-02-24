@@ -1,6 +1,6 @@
 module AresMUSH
-  module pro
-    class proColorCmd
+  module Pro
+    class ProColorCmd
       include CommandHandler
       
       attr_accessor :option

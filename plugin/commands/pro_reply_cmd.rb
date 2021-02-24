@@ -1,6 +1,6 @@
 module AresMUSH
-  module pro
-    class proReplyCmd
+  module Pro
+    class ProReplyCmd
       include CommandHandler
 
       attr_accessor :names, :names_raw, :message, :scene_id

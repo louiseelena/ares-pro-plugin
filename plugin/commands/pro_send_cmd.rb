@@ -1,6 +1,6 @@
 module AresMUSH
-  module pro
-      class proSendCmd
+  module Pro
+      class ProSendCmd
           include CommandHandler
 # Possible commands... pro name=message; pro =message; pro name[/optional scene #]=<message>
 
@@ -116,9 +116,9 @@ module AresMUSH
             end
           end
 
-          recipient_display_names = pro.format_recipient_display_names(recipients, enactor)
-          recipient_names = pro.format_recipient_names(recipients)
-          sender_display_name = pro.format_sender_display_name(enactor)
+          recipient_display_names = Pro.format_recipient_display_names(recipients, enactor)
+          recipient_names = Pro.format_recipient_names(recipients)
+          sender_display_name = Pro.format_sender_display_name(enactor)
 
           self.use_only_nick = Global.read_config("pro", "use_only_nick")
           # If scene, add text to scene
@@ -129,17 +129,17 @@ module AresMUSH
               scene_id_display = self.scene_id
             end
 
-            scene_pro = t('pro.pro_no_scene_id', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
+            scene_pro = t('pro.pro_no_scene_id', :pro => Pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
 
-            self.pro = t('pro.pro_with_scene_id', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :scene_id => scene_id_display )
+            self.pro = t('pro.pro_with_scene_id', :pro => Pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :scene_id => scene_id_display )
 
             Scenes.add_to_scene(self.scene, scene_pro, enactor)
             Rooms.emit_ooc_to_room self.scene.room, scene_pro
           else
             if self.use_only_nick
-              self.pro = t('pro.pro_no_scene_id_nick', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :sender_char => enactor.name )
+              self.pro = t('pro.pro_no_scene_id_nick', :pro => Pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message, :sender_char => enactor.name )
             else
-              self.pro = t('pro.pro_no_scene_id', :pro => pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
+              self.pro = t('pro.pro_no_scene_id', :pro => Pro.format_pro_indicator(enactor, recipient_display_names), :sender => sender_display_name, :message => message)
             end
 
           end
@@ -155,7 +155,7 @@ module AresMUSH
                 client.emit_ooc t('page.recipient_do_not_disturb', :name => char.name)
                 return
               end
-              pro.pro_recipient(enactor, char, recipient_display_names, self.pro, self.scene_id)
+              Pro.pro_recipient(enactor, char, recipient_display_names, self.pro, self.scene_id)
             end
             pro_received = "#{recipient_names}" + " #{enactor.name}"
             pro_received.slice! "#{char.name}"

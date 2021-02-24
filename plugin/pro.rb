@@ -1,7 +1,7 @@
 $:.unshift File.dirname(__FILE__)
 
 module AresMUSH
-  module pro
+  module Pro
     def self.plugin_dir
       File.dirname(__FILE__)
     end
@@ -15,13 +15,13 @@ module AresMUSH
         when "pro"
           case cmd.switch
           when "color"
-            return proColorCmd
+            return ProColorCmd
           when "newscene"
-            return proNewSceneCmd
+            return ProNewSceneCmd
           when "reply"
-            return proReplyCmd
+            return ProReplyCmd
           when nil
-            return proSendCmd
+            return ProSendCmd
           end
         end
       return nil
@@ -29,8 +29,8 @@ module AresMUSH
 
     def self.get_web_request_handler(request)
       case request.cmd
-      when "addpro"
-        return AddproRequestHandler
+      when "addPro"
+        return AddProRequestHandler
       end
       nil
     end

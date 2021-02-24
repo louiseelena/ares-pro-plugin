@@ -12,7 +12,7 @@ Send text messages to other characters.
 > Learn how the text system works in the [Text Tutorial](/help/pro_tutorial).
 
 ## Texting from the Web-Portal
-There is a "pro" button on any active scene in the web-portal. Texting into a scene will send a message in-game, if the character is connected. By default, texting on the portal will send a text to all participants of the scene.
+There is a "Pro" button on any active scene in the web-portal. Texting into a scene will send a message in-game, if the character is connected. By default, texting on the portal will send a text to all participants of the scene.
 
 `<name>=<message>` - Send a message to a specific person from the webportal. Adds recipients to scene if not already a participant.
 
