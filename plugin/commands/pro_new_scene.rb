@@ -26,7 +26,7 @@ module AresMUSH
     end
 
     def check_pro_target
-      return t('Pro.pro_new_scene_target_missing') if !self.names || self.names.empty?
+      return t('pro.pro_new_scene_target_missing') if !self.names || self.names.empty?
       return nil
     end
 
@@ -35,13 +35,13 @@ module AresMUSH
       self.names.each do |name|
         char = Character.named(name)
         if !char
-          client.emit_failure t('Pro.no_such_character')
+          client.emit_failure t('pro.no_such_character')
           return
         end
       end
 
-      scene_type = Global.read_config("Pro", "scene_type")
-      location = Global.read_config("Pro", "location")
+      scene_type = Global.read_config("pro", "scene_type")
+      location = Global.read_config("pro", "location")
       scene = Scenes.start_scene(enactor, location, true, scene_type, true)
 
       # Scenes.create_scene_temproom(scene)

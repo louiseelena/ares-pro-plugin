@@ -2,8 +2,8 @@ module AresMUSH
     module Pro
 
       def self.format_pro_indicator(char, names)
-        t('Pro.pro_indicator',
-       :start_marker => Global.read_config("Pro", "pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "pro_end_marker") || ")",  :preface => Global.read_config("Pro", "pro_preface"),  :recipients => names, :color => pro.pro_color(char) )
+        t('pro.pro_indicator',
+       :start_marker => Global.read_config("Pro", "pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "pro_end_marker") || ")",  :preface => Global.read_config("Pro", "pro_preface"),  :recipients => names, :color => Pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
