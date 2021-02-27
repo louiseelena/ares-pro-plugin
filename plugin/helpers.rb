@@ -12,7 +12,7 @@ module AresMUSH
         recipients.each do |char|
             nickname_field = Global.read_config("demographics", "nickname_field") || ""
             if (char.demographic(nickname_field))
-              recipient_display_names.concat '[char.demographic(nickname_field)]([char.name])'
+              recipient_display_names.concat [char.demographic(nickname_field)]
               sender_name = sender.demographic(nickname_field) || sender.name
             else
               recipient_display_names.concat [char.name]
