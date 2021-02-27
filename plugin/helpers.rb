@@ -9,9 +9,10 @@ module AresMUSH
       def self.format_recipient_display_names(recipients, sender)
         recipient_display_names = []
         sender_name = sender.name
-        recipients.each do |char|
-            recipient_display_names.concat [char.nick]
-            sender_name = sender.nick || sender.name
+        nickname_field = Global.read_config("demographics", "nickname_field") || ""
+            if (char.demographic(nickname_field))
+              recipient_display_names.concat [char.demographic(nickname_field)]
+              sender_name = sender.demographic(nickname_field) || sender.name
         end
         recipient_display_names.delete(sender_name)
         recipients = recipient_display_names.join(", ")
