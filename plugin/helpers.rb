@@ -11,7 +11,7 @@ module AresMUSH
         sender_name = sender.name
         recipients.each do |char|
             nickname_field = Global.read_config("demographics", "dragon") || ""
-            if (char.demographic(nickname_field))
+            if (char.demographic(dragon))
               recipient_display_names.concat [char.demographic(dragon)]
               sender_name = sender.demographic(nickname_field) || sender.name
             else
