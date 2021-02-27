@@ -18,9 +18,6 @@ module AresMUSH
             else
               recipient_display_names.concat [char.name]
             end
-          else
-            recipient_display_names.concat [char.name]
-          end
         end
         recipient_display_names.delete(sender_name)
         if use_nick || use_only_nick
