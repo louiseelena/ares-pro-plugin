@@ -7,7 +7,6 @@ module AresMUSH
       end
 
       def self.format_recipient_display_names(recipients, sender)
-        use_only_nick = true
         recipient_display_names = []
         sender_name = sender.name
         recipients.each do |char|
@@ -20,11 +19,7 @@ module AresMUSH
             end
         end
         recipient_display_names.delete(sender_name)
-        if use_nick || use_only_nick
-          recipients = recipient_display_names.join(", ")
-        else
-          recipients = recipient_display_names.join(" ")
-        end
+        recipients = recipient_display_names.join(", ")
         return t('pro.recipient_indicator', :recipients => recipients)
       end
 
