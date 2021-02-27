@@ -6,13 +6,16 @@ aliases:
 - Texting
 - texts
 ---
-#Texts
-Send text messages to other characters.
+#Pros
+Send dragon projection messages to other characters.
 
-> Learn how the text system works in the [Text Tutorial](/help/pro_tutorial).
+> Learn how the text system works in the [Pro Tutorial](/help/pro_tutorial).
 
-## Texting from the Web-Portal
-There is a "Pro" button on any active scene in the web-portal. Texting into a scene will send a message in-game, if the character is connected. By default, texting on the portal will send a text to all participants of the scene.
+# Dragon names
+By default, the pro command only works for character names and not dragon names. You can change this for projections to yourself by setting your alias to your dragon's name (ie `alias <dragon name>`). 
+
+## Projecting from the Web-Portal
+There is a "Pro" button on any active scene in the web-portal. Projecting into a scene will send a message in-game, if the character is connected. By default, texting on the portal will send a text to all participants of the scene.
 
 `<name>=<message>` - Send a message to a specific person from the webportal. Adds recipients to scene if not already a participant.
 
@@ -23,11 +26,9 @@ There is a "Pro" button on any active scene in the web-portal. Texting into a sc
 
 `pro <name> [<name> <name>]=<message>` - Send a message to name(s) outside of a scene.
 `pro <name> [<name> <name>]/<scene #>=<message>` - Send a text to name + add it to a scene. Adds recipients to scene if not already a participant.
-`pro [=]<message>` - Send a message to your last text target + last scene.
+`pro [=]<message>` - Send a message to your last target + last scene.
 
-`pro/reply` - See who last texted you.
-`pro/reply <message>` - Reply to the last text (including all recipients + scene, if there is one)
-
-`pro/color <color>` - Color the (TXT to <name>) prefix. Use ansi color format for this, ex: \%xh\%xr for red highlight, \%xh\%xg for green highlight.
+`pro/reply` - See who last projected to you.
+`pro/reply <message>` - Reply to the last projection (including all recipients + scene, if there is one)
 
 >  **Note:** If you do not wish to receive pros (in general, or from a specific person), the `page/ignore <name>=<on/off>` and `page/dnd <on/off>` commands will block pros as well.
