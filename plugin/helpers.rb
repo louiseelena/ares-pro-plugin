@@ -24,19 +24,12 @@ module AresMUSH
       end
 
       def self.format_sender_display_name(sender)
-        use_nick = Global.read_config("pro", "use_nick")
-        use_only_nick = Global.read_config("pro", "use_only_nick")
-        if use_nick
-          sender_display_name = sender.nick
-        elsif use_only_nick
           nickname_field = Global.read_config("demographics", "nickname_field") || ""
           if (sender.demographic(nickname_field))
             sender_display_name = sender.demographic(nickname_field)
           else
             sender_display_name = sender.name
           end
-        else
-          sender_display_name = sender.name
         end
         return sender_display_name
       end
