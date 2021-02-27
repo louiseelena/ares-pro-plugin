@@ -17,6 +17,7 @@ module AresMUSH
             else
               recipient_display_names.concat [char.name]
             end
+        end
         recipient_display_names.delete(sender_name)
         recipients = recipient_display_names.join(", ")
         return t('pro.recipient_indicator', :recipients => recipients)
