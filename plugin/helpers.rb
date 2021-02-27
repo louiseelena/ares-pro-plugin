@@ -3,12 +3,12 @@ module AresMUSH
 
       def self.format_pro_indicator(char, names)
         t('pro.pro_indicator',
-       :start_marker => Global.read_config("Pro", "pro_start_marker") || "(", :end_marker => Global.read_config("Pro", "pro_end_marker") || ")",  :preface => Global.read_config("Pro", "pro_preface"),  :recipients => names, :color => Pro.pro_color(char) )
+       :start_marker => Global.read_config("pro", "pro_start_marker") || "(", :end_marker => Global.read_config("pro", "pro_end_marker") || ")",  :preface => Global.read_config("pro", "pro_preface"),  :recipients => names, :color => pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
-        use_nick = Global.read_config("Pro", "use_nick")
-        use_only_nick = Global.read_config("Pro", "use_only_nick")
+        use_nick = Global.read_config("pro", "use_nick")
+        use_only_nick = Global.read_config("pro", "use_only_nick")
         recipient_display_names = []
         sender_name = sender.name
         recipients.each do |char|
