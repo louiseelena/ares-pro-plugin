@@ -3,20 +3,15 @@ module AresMUSH
 
       def self.format_pro_indicator(char, names)
         t('pro.pro_indicator',
-       :start_marker => Global.read_config("Pro", "pro_start_marker") || "<", :end_marker => Global.read_config("Pro", "pro_end_marker") || ">",  :preface => 'DTU:',  :recipients => names, :color => Pro.pro_color(char) )
+       :start_marker => Global.read_config("Pro", "pro_start_marker") || "<", :end_marker => Global.read_config("Pro", "pro_end_marker") || ">",  :preface => 'Projection',  :recipients => names, :color => Pro.pro_color(char) )
       end
 
       def self.format_recipient_display_names(recipients, sender)
-        use_nick = Global.read_config("Pro", "use_nick")
-        use_only_nick = Global.read_config("Pro", "use_only_nick")
+        use_only_nick = true
         recipient_display_names = []
         sender_name = sender.name
         recipients.each do |char|
-          if use_nick
-            recipient_display_names.concat [char.nick]
-            sender_name = sender.nick || sender.name
-          elsif use_only_nick
-            nickname_field = Global.read_config("demographics", "nickname_field") || ""
+            nickname_field = Global.read_config("demographics", "dragon") || ""
             if (char.demographic(nickname_field))
               recipient_display_names.concat [char.demographic(nickname_field)]
               sender_name = sender.demographic(nickname_field) || sender.name
