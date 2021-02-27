@@ -1,6 +1,6 @@
 ---
 en:
-  Pro:
+  pro:
       #Text Message Formatting
       pro_no_scene_id: "%{pro} %xh%xw %{sender}%xn: %{message}%xn"
       pro_no_scene_id_nick: "%{pro} %xh%{sender}%xn: %{message} %xx%xh(%{sender_char})%xn"
