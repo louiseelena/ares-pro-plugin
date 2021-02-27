@@ -7,7 +7,7 @@ module AresMUSH
     end
  
     def self.shortcuts
-      Global.read_config("pro", "shortcuts")
+      Global.read_config("Pro", "shortcuts")
     end
  
     def self.get_cmd_handler(client, cmd, enactor)
