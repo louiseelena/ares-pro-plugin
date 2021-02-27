@@ -29,7 +29,6 @@ module AresMUSH
             sender_display_name = sender.demographic(nickname_field)
           else
             sender_display_name = sender.name
-          end
         end
         return sender_display_name
       end
