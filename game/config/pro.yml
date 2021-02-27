@@ -1,5 +1,5 @@
 ---
-pro:
+Pro:
   use_nick: true
   use_only_nick: true
   pro_start_marker: <
