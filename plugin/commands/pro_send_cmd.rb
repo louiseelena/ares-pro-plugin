@@ -174,7 +174,7 @@ module AresMUSH
       end
 
       def log_command
-        # Don't log texts
+        # Don't log pros
       end
     end
   end
