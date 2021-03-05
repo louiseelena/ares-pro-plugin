@@ -1,11 +1,11 @@
-# Text System
+# Pro System
 
 ## Credit
-This plugin has been updated and is now maintained by Tat @ Ares Central. Original credit for the code goes to skew @ Ares Central.
+This plugin is a hacked up version of the txt plugin updated and is now maintained by Tat @ Ares Central. Original credit for the code goes to skew @ Ares Central.
 
 ## Overview
 
-A command designed to mimic real world texting. It sends texts or other private messages from one person to multiple people.
+A command designed to allow Pernese dragons to communicate with each other. 
 
 It can send as a simple person-to-person emit (like pages), as a scene emit, or as a person-to-person emit that also logs to a scene.
 
