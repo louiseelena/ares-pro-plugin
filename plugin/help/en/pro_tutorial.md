@@ -11,7 +11,7 @@ The projection plugin lets you bespeak other dragons.
 
 ##Sending projections without a Scene
 
-On the game, you can project to other characters online by sending a text without specifying a scene number. These projections are not added to any scene and will not be logged or saved unless you do so manually.
+On the game, you can project to other characters online by sending a projection without specifying a scene number. These projections are not added to any scene and will not be logged or saved unless you do so manually.
 
 Do `pro <name>=<message>` to send a projection without adding it to a scene.
 
@@ -21,11 +21,11 @@ Do `pro <name>=<message>` to send a projection without adding it to a scene.
 
 ###Starting a Scene
 
-On game, you can start a new text scene in one easy step.
+On game, you can start a new dragon scene in one easy step.
 
 `pro/newscene <name> [<name}]=<message>`
 
-This will start a new scene, set the location and scene type, emit the text to all characters currently online, and add the text to the scene.
+This will start a new scene, set the location and scene type, emit the projection to all characters currently online, and add the projection to the scene.
 
 On the portal, you will need to [start a scene](/help/scenes_tutorial#starting-a-scene) and set the location and type manually.
 
@@ -47,6 +47,6 @@ Send projections by using the 'Pro' button next to the 'Add OOC' and 'Add Pose' 
 
 To send projections to a different recipient list, do `<name> [name]=<message>` and use the 'Pro' button.
 
-###Ignoring or Blocking Texts
+###Ignoring or Blocking Pros
 
 If you do not wish to receive pros (in general, or from a specific person), the `page/ignore <name>=<on/off>` and `page/dnd <on/off>` commands will block pros as well.
