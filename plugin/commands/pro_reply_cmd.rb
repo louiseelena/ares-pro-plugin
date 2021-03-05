@@ -20,7 +20,7 @@ module AresMUSH
         puts enactor.pro_received
         puts enactor.pro_received_scene
         if !self.message
-          #Tell what the last text recieved was
+          #Tell what the last pro recieved was
           if enactor.pro_received_scene
             client.emit_success t('pro.reply_scene', :names => enactor.pro_received, :scene => enactor.pro_received_scene)
           else
@@ -34,7 +34,7 @@ module AresMUSH
       end
 
       def log_command
-          # Don't log texts
+          # Don't log pros
       end
 
     end
